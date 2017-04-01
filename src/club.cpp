@@ -5,3 +5,8 @@ Club::Club()
 
 }
 
+void club::printSortedPurchase()
+{
+  
+}
+
