@@ -2,13 +2,18 @@
 #define WHOLESALE_H
 #include "iostream"
 #include "item.h"
-#include "vector"
+#include "LinkedList.h"
+#include "linkedlist.h"
+#include <fstream>
+
 using namespace std;
 
 class Wholesale
 {
 public:
     Wholesale();
+    Wholesale(string n, int ID, bool IsPreferred, string date, double money);
+
 
     string getName();
     void setName(string member);
@@ -20,15 +25,15 @@ public:
     void setExpiration(string date);
     double getSpent();
     void setSpent(double total);
-    vector<Item> getList();
-    void setList(vector<Item> items);
+    LinkedList<Item> getList();
+    void setList(LinkedList<Item> items);
 
     //list of item, quantities sold, names of the members who shopped, total revenue
     void printStatus();
     //search list by id
-    vector<Item> findTotalPurchases(int id);
+    LinkedList<Item> findTotalPurchases(int id);
     //search list by memeber name
-    vector<Item> findTotalPurchases(string name);
+    LinkedList<Item> findTotalPurchases(string name);
     //return true if membership is expired
     bool membershipIsExpired();
     //return true if prefer else false
@@ -36,13 +41,24 @@ public:
     //add item to my(member) list
     void addItem(Item item);
 
+    void printINTOfile(string fileName);
+    //print out by name,quantity,price for testing
+    friend ostream& operator<<(ostream& out,Wholesale member);
+    bool operator == (const Wholesale& member) const;
+    bool operator != (const Wholesale &member) const;
+    bool operator < (const Wholesale& member) const;
+    bool operator > (const Wholesale& member) const;
+    bool operator <= (const Wholesale& member) const;
+    bool operator >= (const Wholesale& member) const;
+
+
 private:
     string name;
     int id;
     bool type;
     string expiration;
     double spent;
-    vector<Item> list;
+    LinkedList<Item> list;
 };
 
 #endif // WHOLESALE_H

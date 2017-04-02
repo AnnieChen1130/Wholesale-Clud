@@ -2,6 +2,8 @@
 #define ITEM_H
 #include "iostream"
 #include <string.h>
+#include "linkedlist.h"
+
 using namespace std;
 
 class Item

@@ -1,6 +1,8 @@
 #ifndef CLUB_H
 #define CLUB_H
 #include "wholesale.h"
+#include "linkedlist.h"
+
 
 class Club
 {
@@ -48,7 +50,7 @@ public:
     void writeTo(string report);
 
 private:
-    vector<Wholesale*> report;
+    LinkedList<Wholesale*> report;
 };
 
 #endif // CLUB_H
