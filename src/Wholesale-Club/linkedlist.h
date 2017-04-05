@@ -2,9 +2,9 @@
 #define LINKEDLIST_H
 //#include "wholesale.h"
 #include <iostream>
+#include <fstream>
 
-
-
+using namespace std;
 template<typename E>
 struct Node{
     E data;             //IN - the value of node
@@ -24,7 +24,6 @@ private:
     void pop_front();
     //Insert value at the front
     void push_front( const E& value );              //IN - the value to insert
-
 
 public:
 
@@ -51,8 +50,10 @@ public:
     //Remove specific value
     void remove(E value);                    //IN - the value to remove
 
-    //Empty list
-    bool isEmpty() const;
+
+    void printListINTOfile(string fileName);
+
+    int ListSize();
 
 
 
@@ -393,6 +394,47 @@ void LinkedList<E>::remove(E value) //IN - the value to remove
 
 }
 
+template<typename E>
+void LinkedList<E>::printListINTOfile(string fileName)
+{
+    ofstream outFile;
+
+    outFile.open(fileName);
+    if (outFile.fail())
+    {
+        cout<<"Output file opening failed.\n";
+    }
+
+    Node<E> *temp;
+    temp = head;
+
+    while(temp)
+    {
+        outFile << temp->data;
+        temp = temp->next;
+    }
+
+
+
+
+}
+
+template<typename E>
+int LinkedList<E>::ListSize()
+{
+    Node<E> *temp;
+    temp = head;
+    int count=0;
+
+    while(temp)
+    {
+        count++;
+        temp = temp->next;
+    }
+
+    return count;
+
+}
 
 
 
