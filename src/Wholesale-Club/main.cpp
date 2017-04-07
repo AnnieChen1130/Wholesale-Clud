@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-
+void readFromFile(LinkedList<Wholesale> memberList);
 int main()
 {
 //    cout << "Hello World!" << endl;
@@ -28,27 +28,22 @@ int main()
 //    }
 
 //    LinkedList<Wholesale> members;
-    Wholesale m1("Annie", 101, true,"11/30/2017",100.10),
-            m2("Tony",102, false, "01/01/2018", 6089.1),
-            m3;
+//    Wholesale m1("Annie", 101, true,"11/30/2017",100.10),
+//            m2("Tony",102, false, "01/01/2018", 6089.1),
+//            m3;
 
-    m3.setName("Amy");
-    m3.setId(103);
-    m3.setType(true);
-    m3.setExpiration("05/08/2018");
-    m3.setSpent(122.43);
+//    m3.setName("Amy");
+//    m3.setId(103);
+//    m3.setType(true);
+//    m3.setExpiration("05/08/2018");
+//    m3.setSpent(122.43);
 
-    cout << endl << "----- m1 -----" << endl;
-    m1.printStatus();
-    m1.printINTOfile("Wholesale_Member.txt");
-    cout << endl << "----- m2 -----" << endl;
-    m2.printStatus();
-//    m2.printINTOfile("Wholesale_Member.txt");
+//    cout << endl << "----- m1 -----" << endl;
+//    m1.printStatus();
+//    m1.printINTOfile("Wholesale_Member.txt");
+//    cout << endl << "----- m2 -----" << endl;
 
-//    m3.printStatus();
-//    m3.printINTOfile("Wholesale_Member.txt");
-
-//    LinkedList<Wholesale> memberList;
+    LinkedList<Wholesale> memberList;
 
 //    memberList.push_back(m2);
 //    memberList.push_back(m3);
@@ -71,6 +66,58 @@ int main()
 //    memberList.insert_sorted(m2);
 //    memberList.display();
 
+//    cout << memberList.ListSize();
+
+    readFromFile(memberList);
+    memberList.display();
+
+
+
+
+
+    cout << endl;
     return 0;
+}
+
+void readFromFile(LinkedList<Wholesale> memberList)
+{
+    fstream inFile;
+    Wholesale member;
+    string name;
+    string ID;
+    string type;
+    string expiration;
+
+
+
+    inFile.open("warehouse shoppers.txt");
+    if (inFile.fail())
+       {
+           cout<<"Input file opening failed.\n";
+           //exit(1);
+       }
+
+    while(!inFile.eof())
+    {
+
+        getline(inFile, name, '\n');
+        getline(inFile, ID, '\n');
+        getline(inFile, type, '\n');
+        getline(inFile, expiration, '\n');
+
+        member.setName(name);
+        member.setId(ID);
+        member.setType(type);
+        member.setExpiration(expiration);
+        member.setSpent(0);
+
+        memberList.push_back(member);
+
+
+    }
+    inFile.close();
+
+    memberList.display();
+
 }
 

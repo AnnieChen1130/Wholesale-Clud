@@ -6,10 +6,15 @@ CONFIG -= qt
 SOURCES += main.cpp \
     club.cpp \
     item.cpp \
-    wholesale.cpp
+    wholesale.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     club.h \
     item.h \
     linkedlist.h \
-    wholesale.h
+    wholesale.h \
+    mainwindow.h
+
+FORMS += \
+    mainwindow.ui
