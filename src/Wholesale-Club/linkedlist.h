@@ -439,7 +439,7 @@ int LinkedList<E>::ListSize()
 }
 
 template<typename E>
-void insert(E value)
+void insert(E target, E value)
 {
     if(this.head == NULL)
     {
@@ -450,7 +450,7 @@ void insert(E value)
     Node<E> *temp;
     temp = this.head;
         
-    while(temp != value)
+    while(temp != target)
     {
         temp = temp.next;
     }
