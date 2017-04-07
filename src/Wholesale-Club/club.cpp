@@ -9,7 +9,7 @@ Club::Club()
 //sorted id number and print out each purchase, and the grand total.
 void Club::printSortedPurchase()
 {
-  
+
 }
 
 
@@ -35,15 +35,14 @@ int Club::getQuantity(Item item)
 //call the getQuantity and print out each quanity and price of the item   
 void Club::printTotal(Item item)
 {
-  cout << "Item: " << item.getName();
-  cout << "Quanity: " << item.getQuantity();
-  cout << "Price: " << item.getPrice();
+  cout << item;
 }
 
 
 //call the getQuantity and print quantity by item name
 void Club::printQuantityByName(Item item)
 {
+  cout << item.getName() << endl;
   cout << getQuantity(item);
 }
 
@@ -59,13 +58,25 @@ void Club::printSortedQuantity()
 //print rebate of preferred members
 void Club::printRebate(Wholesale member)
 {
+  double rebate = 0;
+  if(member.type)
+  {
+    rebate += 75;
+    rebate += member.spent * 0.05;
+  }
+  else
+  {
+    rebate += 60;
+  }
   
+  cout << "Rebate: " << rebate;
 }
 
 //sorted in member id and call printRebate
 void Club::printSortedIdByRebate()
 {
-  
+  LinkedList<Wholesale> *temp;
+  temp.
 }
 
 
