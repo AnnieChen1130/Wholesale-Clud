@@ -69,14 +69,67 @@ void Club::printRebate(Wholesale member)
     rebate += 60;
   }
   
-  cout << "Rebate: " << rebate;
+  cout << "Rebate: " << rebate << endl;
 }
 
 //sorted in member id and call printRebate
 void Club::printSortedIdByRebate()
 {
   LinkedList<Wholesale> *temp;
-  temp.
+  LinkedList<Wholesale> *newTemp;
+  LinkedList<Wholesale> *newList = new LiknedList<Wholesale>;
+  
+  temp = this.head;
+  newList.push_back(temp);
+  
+  temp = temp.next
+  string tempId = temp.id;
+  
+  if(tempID < head.id)
+  {
+    newList.push_front(temp);
+  }
+  else
+  {
+    newList.push_back(temp);
+  }
+  
+  temp = temp.next;
+  while(temp != NULL)
+  {
+    tempID = temp.id;
+    newTemp = newLIst.head;
+    
+    while(tempID > newTemp.id)
+    {
+      if(newTemp.next == NULL)
+      {
+        newList.push_back(temp);
+        break;
+      }
+      
+      if(tempId < newTemp.next.id)
+      {
+        newList.insert(newTemp, temp);
+        break;
+      }
+ 
+      newTemp = newTemp.next;
+            
+    }
+    
+    temp = temp.next;
+    
+  }
+  
+  newTemp = newList.head;
+  while(newTemp != NULL)
+  {
+    cout << "ID: " << newTemp.id;
+    printRebate(newTemp);
+    newTemp = newTemp.next;
+  }
+  
 }
 
 
