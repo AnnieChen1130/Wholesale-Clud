@@ -3,7 +3,6 @@
 #include "iostream"
 #include "item.h"
 #include "LinkedList.h"
-#include "linkedlist.h"
 #include <fstream>
 
 using namespace std;
@@ -12,15 +11,15 @@ class Wholesale
 {
 public:
     Wholesale();
-    Wholesale(string n, int ID, bool IsPreferred, string date, double money);
+    Wholesale(string n, string ID, string membershipType, string date, double money);
 
 
     string getName();
     void setName(string member);
-    int getId();
-    void setId(int number);
-    bool getType();
-    void setType(bool membership);
+    string getId();
+    void setId(string number);
+    string getType();
+    void setType(string membership);
     string getExpiration();
     void setExpiration(string date);
     double getSpent();
@@ -31,9 +30,9 @@ public:
     //list of item, quantities sold, names of the members who shopped, total revenue
     void printStatus();
     //search list by id
-    LinkedList<Item> findTotalPurchases(int id);
+    LinkedList<Item> findTotalPurchases(string id);
     //search list by memeber name
-    LinkedList<Item> findTotalPurchases(string name);
+//    LinkedList<Item> findTotalPurchases(string name);
     //return true if membership is expired
     bool membershipIsExpired();
     //return true if prefer else false
@@ -44,6 +43,7 @@ public:
     void printINTOfile(string fileName);
     //print out by name,quantity,price for testing
     friend ostream& operator<<(ostream& out,Wholesale member);
+
     bool operator == (const Wholesale& member) const;
     bool operator != (const Wholesale &member) const;
     bool operator < (const Wholesale& member) const;
@@ -51,11 +51,14 @@ public:
     bool operator <= (const Wholesale& member) const;
     bool operator >= (const Wholesale& member) const;
 
+    //add new member to the LinkedList and file
+    void addNewMember(LinkedList<Wholesale> memberList);
+    void readFromFile(LinkedList<Wholesale> memberList);
 
 private:
     string name;
-    int id;
-    bool type;
+    string id;
+    string type;
     string expiration;
     double spent;
     LinkedList<Item> list;
