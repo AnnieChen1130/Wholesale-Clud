@@ -17,10 +17,12 @@ public:
     void setName(string item);
     double getPrice();
     void setPrice(double rate);
-
+    double revenue();
+    
     //print out by name,quantity,price for testing
     friend ostream& operator<<(ostream& out, Item item);
-
+    //return true if the items have the same name
+    bool operator == (const Item& member) const;
 private:
     int quantity;
     string name;
