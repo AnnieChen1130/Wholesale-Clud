@@ -19,15 +19,6 @@ void Club::printSortedPurchase()
 int Club::getQuantity(Item item)
 {
 
-  while(List.head != List.tail)
-  (
-     if(report->List.name == item.name)
-     {
-       return List.quantity;
-     }
-      
-    List.head = List.head.next;
-  }
     
 }
 
