@@ -24,6 +24,8 @@ private:
     void pop_front();
     //Insert value at the front
     void push_front( const E& value );              //IN - the value to insert
+    
+
 
 public:
 
@@ -55,7 +57,7 @@ public:
 
     int ListSize();
 
-
+    void insert(E* value);
 
 };
 
@@ -383,7 +385,7 @@ void LinkedList<E>::remove(E value) //IN - the value to remove
         delete current;
     }
 
-    Node<E> *last;
+,.    Node<E> *last;
     last = head;
     while(last)
     {
@@ -436,7 +438,31 @@ int LinkedList<E>::ListSize()
 
 }
 
-
+template<typename E>
+void insert(E value)
+{
+    if(this.head == NULL)
+    {
+        this.push_back(value);
+    }
+    
+        
+    Node<E> *temp;
+    temp = this.head;
+        
+    while(temp != value)
+    {
+        temp = temp.next;
+    }
+    
+    value.next = temp.next;
+    temp.next = value;
+    
+    while(this.tail.next != NULL)
+    {
+        tail = tail.next;
+    }
+}
 
 
 #endif // LINKEDLIST_H
