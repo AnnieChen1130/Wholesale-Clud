@@ -35,3 +35,15 @@ ostream& operator<<(ostream& out, Item item){
     out<<item.name<<" , quantity is "<<item.quantity<<" , $"<<item.price;
     return out;
 }
+
+bool Item::operator == (const Item& member) const{
+    if(name == member.name){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+double Item::revenue(){
+    return price*quantity;
+}
