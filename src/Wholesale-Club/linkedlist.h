@@ -1,10 +1,11 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
-//#include "wholesale.h"
 #include <iostream>
 #include <fstream>
 
 using namespace std;
+//#include "wholesale.h"
+
 template<typename E>
 struct Node{
     E data;             //IN - the value of node
@@ -55,9 +56,30 @@ public:
 
     int ListSize();
 
+    Node<E> *getHead();
+    E searchNode(string memberID);
 
 
 };
+
+template<typename E>
+Node<E>* LinkedList<E>::getHead(){
+    return head;
+}
+
+template<typename E>
+E LinkedList<E>::searchNode(string memberID)
+{
+    Node<E> *temp;
+    temp = head;
+    while(temp->data != memberID)
+    {
+        temp = temp->next;
+    }
+
+    return temp->data;
+
+}
 
 
 

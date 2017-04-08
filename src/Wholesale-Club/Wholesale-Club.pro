@@ -1,20 +1,24 @@
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+
+TARGET = WholeSale-Club
 TEMPLATE = app
-CONFIG += console c++11
-CONFIG -= app_bundle
-CONFIG -= qt
 
 SOURCES += main.cpp \
+        mainwindow.cpp \
     club.cpp \
     item.cpp \
     wholesale.cpp \
-    mainwindow.cpp
 
-HEADERS += \
+
+HEADERS += mainwindow.h \
     club.h \
     item.h \
     linkedlist.h \
-    wholesale.h \
-    mainwindow.h
+    wholesale.h
 
-FORMS += \
-    mainwindow.ui
+
+FORMS   += mainwindow.ui
+
