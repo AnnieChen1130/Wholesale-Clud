@@ -110,7 +110,58 @@ void Club::addTo(int month, int day, Wholesale member) //NOT CORRECT
   
 }
 
+//return true if membership is expired
+bool Wholesale::membershipIsExpired(string today){
+    string temp="";
+    string data="";
 
+    temp +=expiration.at(6);
+    temp +=expiration.at(7);
+    temp +=expiration.at(8);
+    temp +=expiration.at(9);
+    data +=today.at(6);
+    data +=today.at(7);
+    data +=today.at(8);
+    data +=today.at(9);
+    int year;
+    year = stoi(temp);
+    int currentYear;
+    currentYear = stoi(data);
+
+    if( year<currentYear ){
+        return false;
+    }else if(year==currentYear){
+        int month;
+        int currentMonth;
+        temp = expiration.at(0);
+        temp +=expiration.at(1);
+        data = today.at(0);
+        data +=today.at(1);
+        month = stoi(temp);
+        currentMonth = stoi(data);
+        if( month<currentMonth ){
+                return false;
+        }else if(month ==currentMonth){
+            int day;
+            int currentDay;
+            temp = expiration.at(3);
+            temp +=expiration.at(4);
+            data = today.at(3);
+            data +=today.at(4);
+            day = stoi(temp);
+            currentDay = stoi(data);
+            if(day<=currentDay){
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            return true;
+        }
+    }else{
+        return true;
+    }
+}
 
 void CLub::deleteAt(int month, int day, int index)//NOT CORRECT
 {
