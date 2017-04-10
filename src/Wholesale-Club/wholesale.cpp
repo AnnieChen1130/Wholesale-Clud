@@ -147,7 +147,7 @@ bool Wholesale::operator >= (const Wholesale& member) const
     return name > member.name || name == member.name;
 }
 
-void Wholesale::addNewMember(LinkedList<Wholesale> memberList)
+/*void Wholesale::addNewMember(LinkedList<Wholesale> memberList)
 {
     string n;
     string ID;
@@ -186,6 +186,62 @@ void Wholesale::addNewMember(LinkedList<Wholesale> memberList)
     //add new member into file
     newMember.printINTOfile("Wholesale_Member.txt");
 }
+*/
+
+
+void Wholesale::addNewMember(string input)
+{
+    string n;
+    string ID;
+    string membershipType;
+    string date;
+    double money;
+
+
+
+
+
+
+
+    std::cout << "Enter new member's name: ";
+    std::cin >> n;
+
+    std::cout << "Enter new member's ID: ";
+    std::cin >> ID;
+
+    char ans;
+    std::cout << "Is preferred member, enter 'Y', not enter ''N: ";
+    std::cin >> ans;
+
+    if(ans == 'y' || ans == 'Y')
+        membershipType = "Preferred";
+    else
+        membershipType = "Basic";
+
+    std::cout << "Enter expiration date: ";
+    std::cin >> date;
+
+    money = 0;
+
+
+
+    Wholesale newMember(n, ID, membershipType, date, money);
+    newMember.printStatus();
+
+    //add new member into list
+    memberList.push_back(newMember);
+
+    //add new member into file
+    newMember.printINTOfile("Wholesale_Member.txt");
+}
+
+
+
+
+
+
+
+
 
 //void readFromFile(LinkedList<Wholesale> memberList)
 //{

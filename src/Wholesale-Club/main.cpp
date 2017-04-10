@@ -1,10 +1,12 @@
 #include <iostream>
 #include <wholesale.h>
 #include <fstream>
+#include "mainwindow.h"
+#include <QApplication>
 
 using namespace std;
 void readFromFile(LinkedList<Wholesale> memberList);
-int main()
+int main(int argc, char *argv[])
 {
 //    cout << "Hello World!" << endl;
 //    Item item1("item1",3,100.0);
@@ -68,10 +70,14 @@ int main()
 
 //    cout << memberList.ListSize();
 
-    readFromFile(memberList);
-    memberList.display();
+//    readFromFile(memberList);
+//    memberList.display();
 
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
+    return a.exec();
 
 
 

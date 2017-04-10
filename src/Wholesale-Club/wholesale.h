@@ -52,7 +52,10 @@ public:
     bool operator >= (const Wholesale& member) const;
 
     //add new member to the LinkedList and file
-    void addNewMember(LinkedList<Wholesale> memberList);
+//    void addNewMember(LinkedList<Wholesale> memberList);
+    void addNewMember(string input);
+
+
     void readFromFile(LinkedList<Wholesale> memberList);
 
 private:
