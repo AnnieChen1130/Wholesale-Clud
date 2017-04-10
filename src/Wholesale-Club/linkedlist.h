@@ -4,7 +4,6 @@
 #include <fstream>
 
 using namespace std;
-//#include "wholesale.h"
 
 template<typename E>
 struct Node{
@@ -55,12 +54,19 @@ public:
     void printListINTOfile(string fileName);
 
     int ListSize();
+    string displayString() const;
+
 
     Node<E> *getHead();
-    E searchNode(string memberID);
-
+    E searchNode(E memberID);
+    E returnData(Node<E> *temp);
 
 };
+template<typename E>
+E LinkedList<E>::returnData(Node<E> *temp)
+{
+    return temp->data;
+}
 
 template<typename E>
 Node<E>* LinkedList<E>::getHead(){
@@ -68,7 +74,7 @@ Node<E>* LinkedList<E>::getHead(){
 }
 
 template<typename E>
-E LinkedList<E>::searchNode(string memberID)
+E LinkedList<E>::searchNode(E memberID)
 {
     Node<E> *temp;
     temp = head;
@@ -125,6 +131,20 @@ void LinkedList<E>::display() const{
         temp = temp->next;
     }
 }
+
+//string LinkedList<E>::displayString() const{
+
+//    Node<E> *temp;  //OUT - a pointer used to display
+//    temp = head;
+//    std::string out = "";
+
+//    while(temp !=0 )
+//    {
+//        out = temp->data;
+//        temp = temp->next;
+//    }
+//}
+
 
 /*******************************************************
  * FUNCTION: void LinkedList::push_front( int value )

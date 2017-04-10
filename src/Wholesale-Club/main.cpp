@@ -5,7 +5,7 @@
 #include <QApplication>
 
 using namespace std;
-void readFromFile(LinkedList<Wholesale> memberList);
+void readFromFile(LinkedList<Wholesale> &memberList);
 int main(int argc, char *argv[])
 {
 //    cout << "Hello World!" << endl;
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 //    m1.printINTOfile("Wholesale_Member.txt");
 //    cout << endl << "----- m2 -----" << endl;
 
-    LinkedList<Wholesale> memberList;
+//    LinkedList<Wholesale> memberList;
 
 //    memberList.push_back(m2);
 //    memberList.push_back(m3);
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void readFromFile(LinkedList<Wholesale> memberList)
+void readFromFile(LinkedList<Wholesale>& memberList)
 {
     fstream inFile;
     Wholesale member;
