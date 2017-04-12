@@ -52,9 +52,13 @@ public:
     bool operator >= (const Wholesale& member) const;
 
     //add new member to the LinkedList and file
-    void addNewMember(LinkedList<Wholesale> memberList);
-    void readFromFile(LinkedList<Wholesale> memberList);
+//    void addNewMember(LinkedList<Wholesale> memberList);
+    void addNewMember(string n, string ID, string membershipType, string date, LinkedList<Wholesale> memberList);
 
+
+    void readFromFile(LinkedList<Wholesale> memberList);
+    string printStatusString();
+    string coutString();
 private:
     string name;
     string id;

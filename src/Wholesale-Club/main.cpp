@@ -1,10 +1,12 @@
 #include <iostream>
 #include <wholesale.h>
 #include <fstream>
+#include "mainwindow.h"
+#include <QApplication>
 
 using namespace std;
-void readFromFile(LinkedList<Wholesale> memberList);
-int main()
+void readFromFile(LinkedList<Wholesale> &memberList);
+int main(int argc, char *argv[])
 {
 //    cout << "Hello World!" << endl;
 //    Item item1("item1",3,100.0);
@@ -43,7 +45,7 @@ int main()
 //    m1.printINTOfile("Wholesale_Member.txt");
 //    cout << endl << "----- m2 -----" << endl;
 
-    LinkedList<Wholesale> memberList;
+//    LinkedList<Wholesale> memberList;
 
 //    memberList.push_back(m2);
 //    memberList.push_back(m3);
@@ -68,10 +70,14 @@ int main()
 
 //    cout << memberList.ListSize();
 
-    readFromFile(memberList);
-    memberList.display();
+//    readFromFile(memberList);
+//    memberList.display();
 
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
+    return a.exec();
 
 
 
@@ -79,7 +85,7 @@ int main()
     return 0;
 }
 
-void readFromFile(LinkedList<Wholesale> memberList)
+void readFromFile(LinkedList<Wholesale>& memberList)
 {
     fstream inFile;
     Wholesale member;
