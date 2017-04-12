@@ -159,6 +159,9 @@ void Club::printSortedIdByRebate()
   
 //}
 
+
+void CLub::deleteAt(int month, int day, int index)//NOT CORRECT
+{
 //return true if membership is expired
 bool Wholesale::membershipIsExpired(string today){
     string temp="";
@@ -212,8 +215,7 @@ bool Wholesale::membershipIsExpired(string today){
     }
 }
 
-//void CLub::deleteAt(int month, int day, int index)//NOT CORRECT
-//{
+
   
 //}
 
