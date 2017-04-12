@@ -21,15 +21,20 @@ public:
 
 private slots:
     void addMember();
+    void readFromFile();
 
 
 
     void deleteMember();
 
+    void displayMemberList();
+
+    Wholesale searchMember();
+
 private:
     Ui::MainWindow *ui;
-    LinkedList <Wholesale> *memberList;
-    LinkedList <Item> *itemList;
+    LinkedList <Wholesale> memberList;
+    LinkedList <Item> itemList;
 
 
 };
