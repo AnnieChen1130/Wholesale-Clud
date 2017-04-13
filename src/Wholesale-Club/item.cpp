@@ -32,11 +32,12 @@ void Item::setPrice(double rate){
 }
 
 ostream& operator<<(ostream& out, Item item){
-    out<<item.name<<" , quantity is "<<item.quantity<<" , $"<<item.price;
+    out <<item.name<< " , quantity is "<<item.quantity<<" , $"<<item.price;
     return out;
 }
 
-bool Item::operator == (const Item& member) const{
+bool Item::operator ==(const Item& member) const
+{
     if(name == member.name){
         return true;
     }else{
