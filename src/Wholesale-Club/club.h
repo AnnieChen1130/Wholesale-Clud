@@ -44,8 +44,6 @@ public:
     //or change to pref
     //loop each member in the list
     void determineMembership();
-    //return true if membership is expired
-    bool membershipIsExpired(string today);
     //read from the file
     void getFile(string file);
     //write to the file
